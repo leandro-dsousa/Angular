@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico');
+
+.navbar {
+    width : 100vw;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.navbar-brand:hover {
+  color: white !important;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+nav {
+  background-color: #433A3F;
+  background-image: url(https://www.pngmart.com/files/13/Pattern-PNG-Transparent-Image.png);
+}
+
+nav a {
+  color: white;
+}
+
+._navbar {
+  display: inline-flex;
+  width: 100%;
+  list-style: none;
+  justify-content: end;
+}
+
+._navbar li:hover {
+  background-color: #C60610;
+  border-radius: 30px;
+}
+
+li a{
+  display: flex;
+  align-items: center;
+}
+
+*{
+  font-family: Pacifico;
+}
+
+li{
+  margin-inline: 0.5rem;
+}
+
+input, input:active{
+  border: none;
+  outline: none;
+  border-radius: 30px;
+}
+
+div>i{
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+[id = search_bar]{
+  width: 60vw;
+  color:dimgray;
+}
+
+[id = search_bar]:focus {
+  color: black;
+}
+
+@media screen and (max-width:990px) {
+  [id = search_bar] {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width:770px) {
+  [id = search_bar] {
+    width: 35vw;
+  }
+}
