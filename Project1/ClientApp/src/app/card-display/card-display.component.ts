@@ -7,12 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class CardDisplayComponent implements OnInit {
-
+ 
   @Input() image = '';
+
+  modal = document.querySelector("#modal");
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  expandCardOnClick(): void {
+    (this.modal as HTMLDialogElement).showModal();
+  }
 }

@@ -1,44 +1,73 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+/>
 <header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"
+  >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']" style="font-size: 1.5rem">Kaizen</a>
-      <button class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target=".navbar-collapse"
-              aria-label="Toggle navigation"
-              [attr.aria-expanded]="isExpanded"
-              (click)="toggle()">
+      <a
+        class="navbar-brand"
+        [routerLink]="['/']"
+        style="font-size: 1.5rem; color: white"
+        >Kaizen</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-           [ngClass]="{ show: isExpanded }">
-        <div style="display:grid;
-              grid-template-columns: .1fr 1fr;
-              background-color: white;
-              border-radius: 30px;
-              justify-content: center;
-              gap: 5px;
-              margin-left: 20px;">
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 0.1fr 1fr;
+            background-color: white;
+            border-radius: 30px;
+            justify-content: center;
+            gap: 5px;
+            margin-left: 20px;
+          "
+        >
           <i class="bi bi-search"></i>
-          <input id="search_bar" placeholder="Search"/>
+          <input id="search_bar" placeholder="Search" />
         </div>
         <ul class="_navbar flex-grow mb-0">
-          <!--li class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }">
-              <a class="nav-link" [routerLink]="['/']">Home</a>
-          <li-->
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link" [routerLink]="['/counter']" name="Notifications">
-              <i class="bi bi-bell-fill" style="font-size: 1.5rem"></i>
-            </a>
+            <div class="dropdown">
+              <a
+                class="nav-link"
+                [routerLink]="['/counter']"
+                name="Notifications"
+              >
+                <i class="bi bi-bell-fill" style="font-size: 1.5rem"></i>
+              </a>
+            </div>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link" [routerLink]="['/fetch-data']" name="Profile">
-              <i class="bi bi-person-circle" style="font-size: 1.5rem"></i>
-            </a>
+            <div class="dropdown">
+              <a class="nav-link" (click)="toggleProfileDropdown()" name="Profile">
+                <i class="bi bi-person-circle" style="font-size: 1.5rem"></i>
+              </a>
+              <div id="profile-dropdown" class="dp-menu" close>
+                <div class="tip" style="background-color: white"></div>
+                <div class="dropdown-content">
+                  <a href="#">Profile</a>
+                  <a href="#">Account</a>
+                  <a href="#">Log-Out</a>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
       </div>

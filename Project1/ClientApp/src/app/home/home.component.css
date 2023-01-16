@@ -1,6 +1,30 @@
 .panel {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: masonry;
+  gap: 10px;
+  max-width: 1680px;
+  width: 100%;
+}
+
+@media screen and (max-width:990px) {
+  .panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: masonry;
+    gap: 2rem;
+    max-width: 1680px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:770px) {
+  .panel {
+    display: grid;
+    grid-template-columns: 1fr  1fr 1fr;
+    grid-template-rows: masonry;
+    gap: 1rem;
+    max-width: 1680px;
+    width: 100%;
+  }
 }

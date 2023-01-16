@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa');
+
+dialog[open] {
+  border: hidden;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  padding: 0;
+  max-width: 80vw;
+  height: 90vh;
+  animation: scale_up 0.4s ease normal;
+  font-family: 'Comfortaa';
+}
+
+.modal-header {
+  padding: 1.2rem;
+}
+
+.modal-header h4 {
+  margin: 0;
+}
+
+@keyframes show {
+  from {
+    transform: translateY(-110%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes scale_up {
+  from {
+    transform: scale(0%);
+  }
+  to {
+    transform: scale(100%);
+  }
+}
+
+@keyframes scale_down {
+  from {
+    transform: scale(100%);
+  }
+  to {
+    transform: scale(0%);
+  }
+}
+
+.modal-image {
+  max-width: 70%;
+  max-height: 90vh;
+  height: 90vh;
+}
+
+img {
+  height: 90vh;
+  border-radius: 30px 0 0 30px;
+  object-fit: fill;
+  max-width: 56vw;
+}
+
+.user-profile-pic-mini {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px 50px 50px 50px;
+  border-color: black;
+  background-color: black;
+  margin-block: 15px;
+  margin-left: 25px;
+}
+
+.btn-close {
+  font-size: calc(1.275rem + .3vw);
+}
+
+.btn-close:focus {
+  box-shadow:none;
+}
+
+.modal-content {
+  display: grid !important;
+  grid-template-rows: 0.2fr 1.7fr 0.1fr;
+  width: 24vw;
+  max-width: 24vw;
+}
+
+.modal-activity {
+  padding: 1.2rem;
+  text-align: justify;
+}
+
+dialog::backdrop {
+  background-color: #383235;
+  background: linear-gradient(
+    45deg,
+    rgb(71, 71, 71) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-size: cover;
+  opacity: 0.7;
+}

@@ -1,8 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using Project1.Infraestructure;
+using Project1.Repositories.Home;
+using Project1.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContextPool<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    );
+
+builder.Services.AddTransient<HomeService>();
+builder.Services.AddTransient<IHomeRepository, HomeRepository>();
 
 var app = builder.Build();
 
@@ -20,7 +32,7 @@ app.UseRouting();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
+    pattern: "{controller}/{action=Index}/{id?}") ;
 
 app.MapFallbackToFile("index.html"); ;
 
