@@ -45,18 +45,34 @@
         <ul class="_navbar flex-grow mb-0">
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <div class="dropdown">
-              <a
-                class="nav-link"
-                [routerLink]="['/counter']"
-                name="Notifications"
-              >
+              <a id="notifications" class="nav-link" name="Notifications">
                 <i class="bi bi-bell-fill" style="font-size: 1.5rem"></i>
               </a>
+              <div id="notification-dropdown" class="dp-menu" close>
+                <div class="tip" style="background-color: white"></div>
+                <div class="dropdown-content">
+                  <div
+                    class="notifications-content"
+                    *ngIf="notifications.length > 0"
+                  >
+                    <app-notification
+                      *ngFor="let notification of notifications"
+                    >
+                    </app-notification>
+                  </div>
+                  <div
+                    class="notifications-content"
+                    *ngIf="notifications.length == 0"
+                  >
+                    <p>No new notifications.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <div class="dropdown">
-              <a class="nav-link" (click)="toggleProfileDropdown()" name="Profile">
+              <a id="profile" class="nav-link" name="Profile">
                 <i class="bi bi-person-circle" style="font-size: 1.5rem"></i>
               </a>
               <div id="profile-dropdown" class="dp-menu" close>

@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CardDisplayComponent } from './card-display/card-display.component';
 import { BasicModalComponent } from './basic-modal/basic-modal.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BasicModalComponent } from './basic-modal/basic-modal.component';
     CounterComponent,
     FetchDataComponent,
     CardDisplayComponent,
-    BasicModalComponent
+    BasicModalComponent,
+    NotificationComponent
     ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
