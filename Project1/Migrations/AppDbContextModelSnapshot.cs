@@ -22,34 +22,179 @@ namespace Project1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Project1.Post", b =>
+            modelBuilder.Entity("Project1.Domain.Post.Post", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.HasKey("Id");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                    b.ToTable("Posts", (string)null);
+                });
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            modelBuilder.Entity("Project1.Domain.User.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Users", (string)null);
+                });
+
+            modelBuilder.Entity("Project1.Domain.Post.Post", b =>
+                {
+                    b.OwnsOne("Project1.Domain.Post.Author", "Author", b1 =>
+                        {
+                            b1.Property<Guid>("PostId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("_author")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Author");
+
+                            b1.HasKey("PostId");
+
+                            b1.ToTable("Posts");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PostId");
+                        });
+
+                    b.OwnsOne("Project1.Domain.Post.Description", "Description", b1 =>
+                        {
+                            b1.Property<Guid>("PostId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("_description")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Description");
+
+                            b1.HasKey("PostId");
+
+                            b1.ToTable("Posts");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PostId");
+                        });
+
+                    b.OwnsOne("Project1.Domain.Post.Title", "Title", b1 =>
+                        {
+                            b1.Property<Guid>("PostId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("_title")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Title");
+
+                            b1.HasKey("PostId");
+
+                            b1.ToTable("Posts");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PostId");
+                        });
+
+                    b.OwnsOne("Project1.Domain.Post.Url", "Url", b1 =>
+                        {
+                            b1.Property<Guid>("PostId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("_url")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Url");
+
+                            b1.HasKey("PostId");
+
+                            b1.ToTable("Posts");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PostId");
+                        });
+
+                    b.Navigation("Author")
+                        .IsRequired();
+
+                    b.Navigation("Description")
+                        .IsRequired();
+
+                    b.Navigation("Title")
+                        .IsRequired();
+
+                    b.Navigation("Url")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Project1.Domain.User.User", b =>
+                {
+                    b.OwnsOne("Project1.Domain.User.Email", "Email", b1 =>
+                        {
+                            b1.Property<Guid>("UserId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("_email")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Email");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.OwnsOne("Project1.Domain.User.Name", "Name", b1 =>
+                        {
+                            b1.Property<Guid>("UserId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("_name")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Name");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.OwnsOne("Project1.Domain.User.Password", "Password", b1 =>
+                        {
+                            b1.Property<Guid>("UserId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("_password")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Password");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("Users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.Navigation("Email")
+                        .IsRequired();
+
+                    b.Navigation("Name")
+                        .IsRequired();
+
+                    b.Navigation("Password")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

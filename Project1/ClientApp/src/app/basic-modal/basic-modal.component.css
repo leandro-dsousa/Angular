@@ -18,6 +18,7 @@ dialog[open] {
 
 .modal-header h4 {
   margin: 0;
+  font-weight: 800;
 }
 
 @keyframes show {

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Project1.Infraestructure;
 using Project1.Repositories.Home;
+using Project1.Repositories.User;
 using Project1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,8 @@ builder.Services.AddDbContextPool<AppDbContext>(options =>
 
 builder.Services.AddTransient<HomeService>();
 builder.Services.AddTransient<IHomeRepository, HomeRepository>();
+builder.Services.AddTransient<UserService>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

@@ -5,6 +5,7 @@ using Project1.Services;
 
 namespace Project1.Controllers
 {
+    //home
     [Route("[controller]")]
     [ApiController]
     public class HomeController : ControllerBase

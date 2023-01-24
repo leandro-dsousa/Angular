@@ -11,9 +11,9 @@ namespace Project1.Infraestructure
             builder.ToTable("Posts");
             builder.HasKey(x => x.Id);
             builder.OwnsOne(x => x.Title).Property(x=>x._title).HasColumnName("Title");
-            builder.OwnsOne(x => x.Description).Property(x => x._description).HasColumnName("Description"); ;
-            builder.OwnsOne(x => x.Author).Property(x => x._author).HasColumnName("Author"); ;
-            builder.OwnsOne(x => x.Url).Property(x => x._url).HasColumnName("Url"); ;
+            builder.OwnsOne(x => x.Description).Property(x => x._description).HasColumnName("Description");
+            builder.OwnsOne(x => x.Author).Property(x => x._author).HasColumnName("Author");
+            builder.OwnsOne(x => x.Url).Property(x => x._url).HasColumnName("Url");
         }
     }
 }
